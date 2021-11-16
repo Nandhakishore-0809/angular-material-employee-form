@@ -1,17 +1,107 @@
-<form>
-  <mat-vertical-stepper linear>
-    <mat-step label="Enter your name" completed="true">
+<form #employeeForm="ngForm">
+  <h3>Employee Details Form</h3>
+  <mat-horizontal-stepper linear="true">
+    <mat-step label="Personal Details" completed="true">
       <mat-form-field appearance="outline">
         <mat-label>Name</mat-label>
-        <input matInput required />
-        <mat-hint>Min 2 Characters</mat-hint>
+        <input
+          #name="ngModel"
+          name="name"
+          [class.is-invalid]="name.invalid && name.touched"
+          matInput
+          required
+          ngModel
+        />
+        <mat-hint [class.d-none]="name.valid || name.untouched"
+          >Min 2 Characters</mat-hint
+        >
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Date Of Birth</mat-label>
+        <input
+          #dob="ngModel"
+          name="dateofbirth"
+          [class.is-invalid]="dob.invalid && dob.touched"
+          matInput
+          required
+          ngModel
+        />
+        <mat-hint [class.d-none]="dob.valid || dob.untouched"
+          >Please Enter Date of Birth</mat-hint
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Gender</mat-label>
+        <mat-select>
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+        </mat-select>
+        <mat-hint>Please Select Anyone</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Blood Group</mat-label>
+        <mat-select>
+          <mat-option value="o+ve">O+ve</mat-option>
+          <mat-option value="o-ve">O-ve</mat-option>
+          <mat-option value="b+ve">B+ve</mat-option>
+          <mat-option value="ab-ve">AB-ve</mat-option>
+        </mat-select>
+        <mat-hint>Please Select Anyone</mat-hint>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
     </mat-step>
-    <mat-step label="Enter your age" completed="true">
-      <p>Enter your age</p>
+
+    <mat-step label="Contact Details" completed="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Email-id</mat-label>
+        <input
+          #email="ngModel"
+          name="email"
+          [class.is-invalid]="email.invalid && email.touched"
+          matInput
+          required
+          ngModel
+        />
+
+        <mat-hint [class.d-none]="email.valid || email.untouched"
+          >should be in Email format</mat-hint
+        >
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input #phoneno="ngModel" name="phoneno" matInput required ngModel />
+        <mat-hint [class.d-none]="phoneno.valid || phoneno.untouched"
+          >should be in Number format</mat-hint
+        >
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>
+          Previous
+        </button>
+        <button mat-raised-button color="primary" matStepperNext>Next</button>
+      </div>
     </mat-step>
-    <mat-step label="Enter your Date of Birth" completed="true">
-      <p>Enter your Date of Birth</p>
+    <mat-step label="Comments" completed="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Comments</mat-label>
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <div>
+        <button mat-raised-button color="primary" matStepperPrevious>
+          Previous
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          [disabled]="employeeForm.form.invalid"
+        >
+          Submit
+        </button>
+      </div>
     </mat-step>
-  </mat-vertical-stepper>
+  </mat-horizontal-stepper>
 </form>
