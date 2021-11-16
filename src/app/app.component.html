@@ -1,4 +1,17 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<form>
+  <mat-vertical-stepper linear>
+    <mat-step label="Enter your name" completed="true">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput required />
+        <mat-hint>Min 2 Characters</mat-hint>
+      </mat-form-field>
+    </mat-step>
+    <mat-step label="Enter your age" completed="true">
+      <p>Enter your age</p>
+    </mat-step>
+    <mat-step label="Enter your Date of Birth" completed="true">
+      <p>Enter your Date of Birth</p>
+    </mat-step>
+  </mat-vertical-stepper>
+</form>
