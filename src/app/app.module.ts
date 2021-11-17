@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -24,6 +25,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatRadioModule,
     MatButtonModule,
+    MatSnackBarModule
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],
